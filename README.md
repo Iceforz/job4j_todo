@@ -1,5 +1,5 @@
 # job4j_todo
-![This is an image](blob/master/photo/toDoList.png)
+![This is an image](photo/toDoList.png)
 ##1. О проекте: Приложение для создания задач.
 
 ###2. Сборка: Maven, PostgresSQL, Hibernate, HTML, Spring boot, Thymeleaf, Bootstrap
