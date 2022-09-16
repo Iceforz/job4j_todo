@@ -1,5 +1,5 @@
 # job4j_todo
-![This is an image](https://github.com/Iceforz/job4j_todo/commit/58bef7a924b36a4ee3a0b83a4f807929b544f49b)
+![This is an image](blob/master/photo/toDoList.png)
 ##1. О проекте: Приложение для создания задач.
 
 ###2. Сборка: Maven, PostgresSQL, Hibernate, HTML, Spring boot, Thymeleaf, Bootstrap
