@@ -1,7 +1,6 @@
 package job4j.todo.model;
 
 import lombok.*;
-
 import javax.persistence.*;
 import java.io.Serializable;
 import java.sql.Timestamp;

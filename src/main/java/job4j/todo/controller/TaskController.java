@@ -1,12 +1,14 @@
 package job4j.todo.controller;
 
 import job4j.todo.model.Task;
+import job4j.todo.model.User;
 import job4j.todo.service.TaskService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpSession;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
 
@@ -89,5 +91,29 @@ public class TaskController {
         task.setCreated(Timestamp.valueOf(LocalDateTime.now()));
         taskService.add(task);
         return "redirect:/index";
+    }
+
+    @GetMapping("/notDone")
+    public String undone(Model model, HttpSession session) {
+        User user = (User) session.getAttribute("user");
+        if (user == null) {
+            user = new User();
+            user.setName("Гость");
+        }
+        model.addAttribute("user", user);
+        model.addAttribute("notDone", taskService.findNotDone());
+        return "notDone";
+    }
+
+    @GetMapping("/done")
+    public String done(Model model, HttpSession session) {
+        User user = (User) session.getAttribute("user");
+        if (user == null) {
+            user = new User();
+            user.setName("Гость");
+        }
+        model.addAttribute("user", user);
+        model.addAttribute("done", taskService.findDone());
+        return "done";
     }
 }
