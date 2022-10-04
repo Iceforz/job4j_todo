@@ -10,7 +10,7 @@ import java.util.List;
 @Repository
 @AllArgsConstructor
 public class TaskStore {
-    private final SessionFactory sf;
+     private final SessionFactory sf;
 
     public Task addTask(Task task) {
         Session session = sf.openSession();

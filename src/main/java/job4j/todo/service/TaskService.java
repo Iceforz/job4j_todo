@@ -5,42 +5,44 @@ import job4j.todo.store.TaskStore;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @AllArgsConstructor
 public class TaskService {
 
-    private final TaskStore store;
+    private final TaskStore taskStore;
 
     public Task findById(int id) {
-        return store.findTaskById(id);
+        return taskStore.findTaskById(id);
     }
 
     public Task add(Task task) {
-        return store.addTask(task);
+        return taskStore.addTask(task);
     }
 
-    public boolean update(Task task) {
-        return store.replaceTask(task);
+    public void update(Task task) {
+       taskStore.replaceTask(task);
     }
 
-    public boolean delete(int id) {
-        return store.deleteTask(id);
+    public Object delete(int id) {
+        taskStore.deleteTask(id);
+        return null;
     }
 
     public List<Task> findByName(String key) {
-        return store.findTaskByName(key);
+        return taskStore.findTaskByName(key);
     }
 
     public List<Task> findAll() {
-        return store.findAllTasks();
+        return taskStore.findAllTasks();
     }
 
     public List<Task> findDone() {
-        return store.findTaskByDoneTrue();
+        return taskStore.findTaskByDoneTrue();
     }
 
     public List<Task> findNotDone() {
-        return store.findTaskByDoneFalse();
+        return taskStore.findTaskByDoneFalse();
     }
 }

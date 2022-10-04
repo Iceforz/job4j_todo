@@ -23,9 +23,12 @@
     <span class="navbar-toggler-icon"></span>
   </button>
   <body>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
   <div class="container">
     <div class="row">
       <a class="navbar-brand" href="/index">Todo List</a>
+      <a class="nav-item nav-link" th:href="@{/loginPage}">Авторизация</a>
+      <a class="nav-item nav-link" th:href="@{/createUser}">Регистрация</a>
     </div>
     <table class="table">
       <thead>
@@ -47,6 +50,7 @@
       </tbody>
     </table>
   </div>
+    </div>
   </body>
 </nav>
 </html>

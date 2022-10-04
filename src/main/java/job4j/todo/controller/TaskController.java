@@ -1,8 +1,8 @@
 package job4j.todo.controller;
 
 import job4j.todo.model.Task;
-import job4j.todo.model.User;
 import job4j.todo.service.TaskService;
+import job4j.todo.model.User;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
