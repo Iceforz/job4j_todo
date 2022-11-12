@@ -43,7 +43,6 @@ public class UserStore  {
         return crudRepository.optional(
                 "from User where id = :fId", User.class,
                         Map.of("fId", id));
-
     }
 
     public List<User> findAllUsers() {
