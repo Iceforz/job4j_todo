@@ -13,7 +13,7 @@ public class TaskService {
 
     private final TaskStore taskStore;
 
-    public Task findById(int id) {
+    public Optional<Task> findById(int id) {
         return taskStore.findTaskById(id);
     }
 
@@ -26,7 +26,7 @@ public class TaskService {
     }
 
     public Object delete(int id) {
-        taskStore.deleteTask(id);
+       taskStore.deleteTask(id);
         return null;
     }
 

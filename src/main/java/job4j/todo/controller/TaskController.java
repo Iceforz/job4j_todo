@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpSession;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
+import java.util.Optional;
 
 
 @Controller
@@ -45,7 +46,8 @@ public class TaskController {
 
     @GetMapping("/formUpdateTask/{taskId}")
     public String formUpdateTask(Model model, @PathVariable("taskId") int id) {
-        model.addAttribute("task", taskService.findById(id));
+        Optional<Task> opt = taskService.findById(id);
+        model.addAttribute("task", opt.get());
         return "updateTask";
     }
 
@@ -69,7 +71,8 @@ public class TaskController {
 
     @GetMapping("/formShowTask/{taskId}")
     public String formShowTask(Model model, @PathVariable("taskId") int id) {
-        model.addAttribute("task", taskService.findById(id));
+        Optional<Task> opt = taskService.findById(id);
+        model.addAttribute("task", opt.get());
         return "showTask";
     }
 
@@ -87,7 +90,9 @@ public class TaskController {
     }
 
     @PostMapping("/createTask")
-    public String createTask(@ModelAttribute Task task) {
+    public String create(@ModelAttribute Task task, HttpSession session) {
+        User user = (User) session.getAttribute("user");
+        task.setUser(user);
         task.setCreated(Timestamp.valueOf(LocalDateTime.now()));
         taskService.add(task);
         return "redirect:/index";

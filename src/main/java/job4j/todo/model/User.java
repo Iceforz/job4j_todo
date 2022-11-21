@@ -3,12 +3,14 @@ package job4j.todo.model;
 import lombok.*;
 import javax.persistence.*;
 
+@Data
 @Entity
 @Table(name = "todo_user")
-@EqualsAndHashCode(of = "login, password")
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @EqualsAndHashCode.Include
     private int id;
     private String name;
     private String login;

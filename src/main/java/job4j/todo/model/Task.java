@@ -16,9 +16,14 @@ import java.sql.Timestamp;
 
 public class Task implements Serializable {
 
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    @EqualsAndHashCode.Include
+    private int id;
 
     @EqualsAndHashCode.Include
     private String name;
